@@ -4,6 +4,13 @@ Lip-reading translation refers to converting visual lip movements into human-und
 # Results
 ![alt text](./assets/result_table.png)
 
+Some testing results
+![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
+![alt text](image-3.png)
+![alt text](image-4.png)
+
 # Dataset
 We used GRID dataset, which can be downloaded from here: http://spandh.dcs.shef.ac.uk/gridcorpus/
 
