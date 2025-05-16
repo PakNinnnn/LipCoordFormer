@@ -13,4 +13,5 @@ Some testing results
 
 # Dataset
 We used GRID dataset, which can be downloaded from here: http://spandh.dcs.shef.ac.uk/gridcorpus/
-
+Here is a sample video,
+[![Sample Video](./assets/video_thumbnail.png)](./assets/id2_vcd_swwp2s.mpg "Click to play the video")
