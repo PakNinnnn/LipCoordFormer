@@ -5,7 +5,7 @@ import os
 from dataset import MyDataset
 import numpy as np
 import time
-from model import LipNet, LipCoordNet2, LipCoordNet3, LipCoordNet4, LipCoordNet5, LipNet2, LipCoordNet6
+from model import LipNet, LipCoordFormer2, LipCoordFormer3, LipCoordFormer4, LipCoordFormer5, LipNet2, LipCoordFormer6
 import torch.optim as optim
 from tensorboardX import SummaryWriter
 import options as opt
@@ -282,14 +282,14 @@ if __name__ == "__main__":
     model_dict.update(pretrained_dict)
     original_model.load_state_dict(model_dict)
     
-    # model = LipCoordNet()
-    #model = LipCoordNet2(original_model)
+    # model = LipCoordFormer()
+    #model = LipCoordFormer2(original_model)
     print("Loading new model...")
-    #model = LipCoordNet3(original_model)
-    model = LipCoordNet4(original_model)
-    #model = LipCoordNet5(original_model)
+    #model = LipCoordFormer3(original_model)
+    model = LipCoordFormer4(original_model)
+    #model = LipCoordFormer5(original_model)
     #model = LipNet2()
-    model = LipCoordNet6(landmark=True, LSTM=False, transformer=False)
+    model = LipCoordFormer6(landmark=True, LSTM=False, transformer=False)
     
     
     

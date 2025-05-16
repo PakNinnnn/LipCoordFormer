@@ -1,8 +1,4 @@
-# Original LipCoordNet
-# files = ["lipcoordnet_first_1_190_epochs.txt", "lipcoordnet_first_2_70_epochs.txt", "lipcoordnet_first_3_10_epochs.txt", "lipcoordnet_first_4_90_epochs.txt", "lipcoordnet_first_5_110_epochs.txt"]
-# file_lens = [190, 70, 10, 90, 110]
 
-# LipCoordNet With Transformer
 files = ["LipCoordFormer_3DConv_Coord_BiGRU_training_log_20250512114337.txt"]
 file_lens = [410]
 

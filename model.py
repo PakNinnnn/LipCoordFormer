@@ -89,10 +89,10 @@ class LipNet(torch.nn.Module):
         return x
 
 
-#LipCoordNet - model with LipNet + Coords - not used in runs
-class LipCoordNet(torch.nn.Module):
+#LipCoordFormer - model with LipNet + Coords - not used in runs
+class LipCoordFormer(torch.nn.Module):
     def __init__(self, dropout_p=0.5, coord_input_dim=40, coord_hidden_dim=128):
-        super(LipCoordNet, self).__init__()
+        super(LipCoordFormer, self).__init__()
         self.conv1 = nn.Conv3d(3, 32, (3, 5, 5), (1, 2, 2), (1, 2, 2))
         self.pool1 = nn.MaxPool3d((1, 2, 2), (1, 2, 2))
 
@@ -198,10 +198,10 @@ class LipCoordNet(torch.nn.Module):
         x = x.permute(1, 0, 2).contiguous()
         return x
 
-#LipCoordNet2 is our first model with coord and GRU - run 3 on slides
-class LipCoordNet2(torch.nn.Module):
+#LipCoordFormer2 is our first model with coord and GRU - run 3 on slides
+class LipCoordFormer2(torch.nn.Module):
     def __init__(self, original_lipnet, dropout_p=0.5, coord_input_dim=40, coord_hidden_dim=128):
-        super(LipCoordNet2, self).__init__()
+        super(LipCoordFormer2, self).__init__()
         # self.conv1 = nn.Conv3d(3, 32, (3, 5, 5), (1, 2, 2), (1, 2, 2))
         # self.pool1 = nn.MaxPool3d((1, 2, 2), (1, 2, 2))
 
@@ -316,10 +316,10 @@ class PositionalEncoding(nn.Module):
         x = x + self.pe[:, :x.size(1), :]
         return x
 
-# LipCoordNet3 - Transformer Decoder - Attention Mechanism - Run 5 on slides
-class LipCoordNet3(torch.nn.Module):
+# LipCoordFormer3 - Transformer Decoder - Attention Mechanism - Run 5 on slides
+class LipCoordFormer3(torch.nn.Module):
     def __init__(self, original_lipnet, dropout_p=0.5, coord_input_dim=40, coord_hidden_dim=128, d_model=512, nhead=8, num_layers=3):
-        super(LipCoordNet3, self).__init__()
+        super(LipCoordFormer3, self).__init__()
         self.feature_extractor = nn.Sequential(
             original_lipnet.conv1,
             original_lipnet.relu,
@@ -450,10 +450,10 @@ class LipCoordNet3(torch.nn.Module):
         x = x.permute(1, 0, 2).contiguous()
         return x
 
-#LipCoordNet4 is our model with coords + Bi-LSTM - Run 4 on slides
-class LipCoordNet4(torch.nn.Module):
+#LipCoordFormer4 is our model with coords + Bi-LSTM - Run 4 on slides
+class LipCoordFormer4(torch.nn.Module):
     def __init__(self, original_lipnet, dropout_p=0.5, coord_input_dim=40, coord_hidden_dim=128):
-        super(LipCoordNet4, self).__init__()
+        super(LipCoordFormer4, self).__init__()
         self.feature_extractor = nn.Sequential(
             original_lipnet.conv1,
             original_lipnet.relu,
@@ -543,10 +543,10 @@ class LipCoordNet4(torch.nn.Module):
         return x
 
 
-# LipCoordNet5 - Transformer Decoder - Attention Mechanism with Bi-LSTM - Run 6 on slides
-class LipCoordNet5(torch.nn.Module):
+# LipCoordFormer5 - Transformer Decoder - Attention Mechanism with Bi-LSTM - Run 6 on slides
+class LipCoordFormer5(torch.nn.Module):
     def __init__(self, original_lipnet, dropout_p=0.5, coord_input_dim=40, coord_hidden_dim=128, d_model=512, nhead=8, num_layers=3):
-        super(LipCoordNet5, self).__init__()
+        super(LipCoordFormer5, self).__init__()
         self.feature_extractor = nn.Sequential(
             original_lipnet.conv1,
             original_lipnet.relu,
@@ -812,10 +812,10 @@ def make_layer(block, in_channels, out_channels, blocks, stride=1):
         layers.append(block(out_channels, out_channels))
     return nn.Sequential(*layers)
 
-# LipCoordNet6 - ResNet34 + GRU/LSTM + Transformer
-class LipCoordNet6(torch.nn.Module):
+# LipCoordFormer6 - ResNet34 + GRU/LSTM + Transformer
+class LipCoordFormer6(torch.nn.Module):
     def __init__(self, landmark=True, LSTM=False, transformer=False, dropout_p=0.5, coord_input_dim=40, coord_hidden_dim=128, d_model=512, nhead=8, num_layers=3):
-        super(LipCoordNet6, self).__init__()
+        super(LipCoordFormer6, self).__init__()
         self.transformer = transformer
         self.landmark = landmark
         self.LSTM = LSTM
